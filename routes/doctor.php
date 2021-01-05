@@ -10,7 +10,7 @@ Route::name('doctor.')->namespace('Doctor')->prefix('doctor')->group(function(){
 
     Route::namespace('Auth')->middleware('guest')->group(function(){
         Route::get('/register','RegisterController@register')->name('register');
-        Route::post('/register','RegisterController@register');
+        Route::post('/register','RegisterController@processRegister');
     });
 
 });

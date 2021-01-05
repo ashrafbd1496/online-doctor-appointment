@@ -21,4 +21,17 @@ class RegisterController extends Controller
         // abort(Response::HTTP_NOT_ACCEPTABLE);
 
     }
+
+    public function processRegister(Request $request){
+         $request->validate([
+                'name' =>'required',
+                'email' =>'required|unique:doctor',
+                'password' => ['required', 'string', 'min:4', 'confirmed'],
+        
+         ]);
+    }
+
+
+
+
 }
