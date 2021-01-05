@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Doctor\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\DoctorRegister;
 // use Illuminate\Support\Facades\View;
 
 
@@ -22,13 +23,12 @@ class RegisterController extends Controller
 
     }
 
-    public function processRegister(Request $request){
-         $request->validate([
-                'name' =>'required',
-                'email' =>'required|unique:doctor',
-                'password' => ['required', 'string', 'min:4', 'confirmed'],
+    public function processRegister(DoctorRegister $request){
         
-         ]);
+        // return $request->except('_token');
+        // return $request->except(['_token','email']);
+        // return $request->only(['_token','email']);
+       return $request->validated();
     }
 
 
