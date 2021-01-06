@@ -25,7 +25,7 @@ class DoctorRegister extends FormRequest
     {
         return [
             'name' =>'required',
-            'email' =>'required|unique:doctor',
+            'email' =>'required|unique:users,email',
             'password' => ['required', 'string', 'min:4', 'confirmed'],
         ];
     }

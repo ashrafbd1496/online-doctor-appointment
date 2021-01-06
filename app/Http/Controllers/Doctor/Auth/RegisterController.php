@@ -2,33 +2,36 @@
 
 namespace App\Http\Controllers\Doctor\Auth;
 
+use App\Models\Doctor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\View;
 use App\Http\Requests\DoctorRegister;
-// use Illuminate\Support\Facades\View;
+use Symfony\Component\HttpFoundation\Response;
 
 
 class RegisterController extends Controller
 {
     public function register()
     {
-        if(\View::exists('doctor.auth.register'))
+        if(View::exists('doctor.auth.register'))
         {
             return view('doctor.auth.register');
         }
 
         abort(403);
 
-        // abort(Response::HTTP_NOT_ACCEPTABLE);
+        //abort(Response::HTTP_NOT_ACCEPTABLE);
 
     }
 
     public function processRegister(DoctorRegister $request){
-        
-        // return $request->except('_token');
-        // return $request->except(['_token','email']);
-        // return $request->only(['_token','email']);
-       return $request->validated();
+      Doctor::create([
+            'name' =>$request->input('name'),
+            'email' =>$request->input('email'),
+            'password' =>Hash::make($request->input('password')),
+      ]);
     }
 
 
