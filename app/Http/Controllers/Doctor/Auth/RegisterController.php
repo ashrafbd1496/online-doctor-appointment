@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\View;
 use App\Http\Requests\DoctorRegister;
+use GuzzleHttp\RetryMiddleware;
 use Symfony\Component\HttpFoundation\Response;
 
 
@@ -27,10 +28,11 @@ class RegisterController extends Controller
     }
 
     public function processRegister(DoctorRegister $request){
+        return \Str::snake('stPasswordAttribute');
       Doctor::create([
             'name' =>$request->input('name'),
             'email' =>$request->input('email'),
-            'password' =>Hash::make($request->input('password')),
+            'password' =>$request->input('password'),
       ]);
     }
 
