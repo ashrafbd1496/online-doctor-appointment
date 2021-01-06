@@ -29,13 +29,13 @@ class RegisterController extends Controller
 
     public function processRegister(DoctorRegister $request){
        
-    //   Doctor::create([
-    //         'name' =>$request->input('name'),
-    //         'email' =>$request->input('email'),
-    //         'password' =>$request->input('password'),
-    //   ]);
+      Doctor::create([
+            'name' =>$request->input('name'),
+            'email' =>$request->input('email'),
+            'password' =>$request->input('password'),
+      ]);
 
-    return redirect()->action([LoginController::class, 'login']);
+    return redirect()->action([LoginController::class, 'login'])->with('message','Registration completed successfully! Please login!');
     }
 
 
