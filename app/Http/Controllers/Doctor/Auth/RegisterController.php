@@ -35,7 +35,7 @@ class RegisterController extends Controller
     //         'password' =>$request->input('password'),
     //   ]);
 
-      return redirect()->route('doctor.login');
+    return redirect()->action([LoginController::class, 'login']);
     }
 
 
