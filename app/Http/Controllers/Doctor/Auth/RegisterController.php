@@ -28,12 +28,14 @@ class RegisterController extends Controller
     }
 
     public function processRegister(DoctorRegister $request){
-        return \Str::snake('stPasswordAttribute');
-      Doctor::create([
-            'name' =>$request->input('name'),
-            'email' =>$request->input('email'),
-            'password' =>$request->input('password'),
-      ]);
+       
+    //   Doctor::create([
+    //         'name' =>$request->input('name'),
+    //         'email' =>$request->input('email'),
+    //         'password' =>$request->input('password'),
+    //   ]);
+
+      return redirect()->route('doctor.login');
     }
 
 
