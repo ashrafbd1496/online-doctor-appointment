@@ -17,6 +17,7 @@ Route::name('doctor.')->namespace('Doctor')->prefix('doctor')->group(function(){
 
         //login route
         Route::get('/login','LoginController@login')->name('login');
+        Route::post('/login','LoginController@processLogin');
     });
 
 });

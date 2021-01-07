@@ -10,7 +10,7 @@
                 <span>{{ session()->get('message') }}</span>
                 @endif
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('doctor.login') }}">
                         @csrf
 
                         <div class="form-group row">

@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Doctor\Auth;
 
-use Facades\App\Helper\Helper;
+// use Facades\App\Helper\Helper;
+use App\Helper\Helper;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\View;
@@ -21,6 +22,11 @@ class LoginController extends Controller
 
     }
 
+    public function processLogin(Request $request){
+
+        return Helper::test();
+
+    }
 
 
     
