@@ -18,7 +18,7 @@ class CreateDoctorsTable extends Migration
             $table->foreignId('designation_id')
                     ->index()
                     ->constrained()
-                    ->onDelete('cascade');
+                    ->onDelete('cascade')->nullable();
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
